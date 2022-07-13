@@ -1,0 +1,15 @@
+installing it 
+    sudo apt install python3.7-venv
+    pip install virtualenv
+
+creating it  
+    (LINUX)
+    python3 -m venv (env name)
+    (WINDOWS)
+    py -m venv (venvname)
+
+activating it
+    (LINUX)
+    source (envname)/bin/activate 
+    (WINDOWS)
+    .\(env name)\Scripts\activate

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<link rel="stylesheet" href="style.css">
+ 
+<title>Gallery</title>
+<style type="text/css">
+ 
+</style>
+</head>
+<body>
+ 
+    <div onMouseOver="btn_show()" onMouseOut="btn_noshow()" class="wrapper">
+     
+            <script type="text/javascript">  
+             
+                        //array with links to images
+                var imageArray = [
+                 
+                    "1.jpg",        
+                    "2.jpg",        
+                    "3.jpg",        
+                    "4.jpg",        
+                    "5.jpg",        
+                    "6.jpg",        
+                    "7.jpg",        
+                    "8.jpg",        
+                    "9.jpg",        
+                    "10.jpg",               
+                ];
+                 
+                window.number = '0';
+ 
+                            //amount of pictures = length of the array
+                var imageCount = imageArray.length;
+                                 
+                function image(num){
+                 
+                        //if the next pic is chosen
+                    if(num == 1){
+                     
+                            //if it's the last picture the counter won't be increased
+                        if(number < imageCount - 1){
+                         
+                            number++;
+ 
+                            document.getElementById('images').src = imageArray[number];
+                            document.getElementById('num_img').innerHTML= number + 1 + '/' + imageCount;
+                        }
+                    }                    
+                    else{  //if the previous pic is chosen
+                     
+                                //if it's the first picture the counter "number" won't be increased
+                        if(number > 0){
+                         
+                            number--;
+                            document.getElementById('images').src = imageArray[number];
+                            document.getElementById('num_img').innerHTML= number + 1 + '/' + imageCount;
+                        }
+                    }
+                }
+                 
+                        //function for showing the buttons
+                function btn_show(){
+ 
+                    if(number != 0) document.getElementById('left').style.display='block';
+                    if(number != imageCount - 1) document.getElementById('right').style.display='block';
+                }
+                 
+                        //dunction that stops the showing of the buttons
+                function btn_noshow(){
+ 
+                    document.getElementById('left').style.display='none';
+                    document.getElementById('right').style.display='none';
+                }
+                     
+                    //output images
+                document.write('<img id="images" src="' + imageArray[0] + '">');
+            </script>
+ 
+                        <!-- left button -->
+        <div id="left" onclick="image(0)" class="left_right"><img src="left.png"></div>
+                     
+                        <!-- right button -->
+        <div id="right" onclick="image(1)" class="left_right" style="margin-left: 534px; position: absolute; display: none;"><img src="right.png"></div>
+             
+    </div>
+ 
+    <center><p style="font-size: 18px;color: #333;font-weight: bold;" id="num_img"></p></center>
+     
+    <center><span class="myButton" onclick="image(0)">Back</span> <span class="myButton"  onclick="image(1)">Next</span></center>
+         
+</body>
+</html>
